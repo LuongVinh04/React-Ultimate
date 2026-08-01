@@ -1,5 +1,5 @@
 import React from "react";
-import UserInfo from "./UserInfo";
+import UserInfo from "./AddUser";
 
 class DisplayInfo extends React.Component {
   state = {

@@ -2,7 +2,7 @@
 //function component
 
 import React from "react";
-import UserInfo from "./UserInfo";
+import AddUser from "./AddUser";
 import DisplayInfo from "./DisplayInfo";
 class MyComponent extends React.Component {
   state = {
@@ -12,16 +12,22 @@ class MyComponent extends React.Component {
       {id: 3, name : 'Luong Giang', age: 30, address: 'Ha Giang'},
     ]
   }
-  
+
+  handleAddNewUser = (userObj) => {
+    this.setState({
+      listUsers: [userObj, ...this.state.listUsers ]
+    });
+  }
+
   //jsx
   render() {
     return (
       <div>
        
 
-        <UserInfo></UserInfo>
+        <AddUser handleAddNewUser={this.handleAddNewUser}></AddUser>
         <br></br>
-        <DisplayInfo listUsers={this.state.listUsers}></DisplayInfo>
+        <DisplayInfo listUsers={this.state.listUsers} ></DisplayInfo>
       </div>
     );
   }
