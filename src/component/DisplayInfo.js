@@ -2,31 +2,43 @@ import React from "react";
 import UserInfo from "./UserInfo";
 
 class DisplayInfo extends React.Component {
+  state = {
+    isShowListUser: true,
+  };
+  handleShowHide = () => {
+    this.setState({
+      isShowListUser: !this.state.isShowListUser,
+    });
+  };
   render() {
-    console.log(this.props);
     //destructuring array/object
     const { listUsers } = this.props;
-    console.log(listUsers);
     //props => viet tat properties (dung de truyen du lieu tu component cha sang component con)
     return (
       <div>
-        {listUsers.map((user) => {
-          console.log("check user: ", user);
-          return (
-            <div key={user.id}>
-              <div>My name is {user.name}</div>
-              <div>My age is {user.age}</div>
-            </div>
-          );
-        })}
-        {/* <div>My name is {name}</div>
-        <div>My age is {age}</div>
-        <hr></hr>
-        <div>My name is {name}</div>
-        <div>My age is {age}</div>
-        <hr></hr>
-        <div>My name is {name}</div>
-        <div>My age is {age}</div> */}
+        <div>
+          <span
+            onClick={() => {
+              this.handleShowHide();
+            }}
+          >
+            {this.state.isShowListUser === true
+              ? "Hide list users"
+              : "Show list users"}
+          </span>
+        </div>
+        {this.state.isShowListUser && (
+          <div>
+            {listUsers.map((user) => {
+              return (
+                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
+                  <div>My name is {user.name}</div>
+                  <div>My age is {user.age}</div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
