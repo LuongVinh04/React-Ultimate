@@ -12,12 +12,21 @@ class App extends React.Component {
     age: 22,
   };
 
+  handleClick(event) {
+    console.log("Click me", event);
+    console.log("My name is", this.state.name);
+  }
+
+  handleOnMouseOver(event) {
+    console.log("Mouse over me", event);
+  }
   //jsx
   render() {
     return (
       <div>
         Hello World My name is {this.state.name}
-        <MyComponent></MyComponent>
+        <button onMouseOver={this.handleOnMouseOver}>Click me</button>
+        <button onClick={this.handleClick}>Click me</button>
       </div>
     );
   }
