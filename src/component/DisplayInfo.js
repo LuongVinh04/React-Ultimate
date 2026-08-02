@@ -1,6 +1,7 @@
 import React from "react";
 import UserInfo from "./AddUser";
 import "./DisplayInfo.scss";
+import logo from "./../logo.svg";
 
 class DisplayInfo extends React.Component {
   state = {
@@ -17,6 +18,7 @@ class DisplayInfo extends React.Component {
     //props => viet tat properties (dung de truyen du lieu tu component cha sang component con)
     return (
       <div className="display-info-container">
+        <img src={logo} />
         <div>
           <span
             onClick={() => {
