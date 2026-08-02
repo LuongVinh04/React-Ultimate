@@ -1,5 +1,6 @@
 import React from "react";
 import UserInfo from "./AddUser";
+import "./DisplayInfo.scss";
 
 class DisplayInfo extends React.Component {
   state = {
@@ -15,7 +16,7 @@ class DisplayInfo extends React.Component {
     const { listUsers } = this.props;
     //props => viet tat properties (dung de truyen du lieu tu component cha sang component con)
     return (
-      <div>
+      <div className="display-info-container">
         <div>
           <span
             onClick={() => {
