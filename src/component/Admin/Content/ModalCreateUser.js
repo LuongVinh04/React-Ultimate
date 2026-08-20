@@ -66,7 +66,6 @@ const ModalCreateUser = (props) => {
     }
 
     let data = await postCreateNewUser(email, password, userName, role, image);
-    console.log(">>>>Res", data);
     if (data && data.EC === 0) {
       toast.success(data.EM);
       handleClose();
